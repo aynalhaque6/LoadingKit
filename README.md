@@ -125,22 +125,6 @@ new LoadingOptions()
 ```java
 .lottieAsset("your_file.json", true)
 ```
-
----
-
-## Publish (AAR / Maven)
-
-The library module `:loadingkit` has `maven-publish` configured.
-
-`loadingkit/build.gradle`:
-- `groupId`: `com.aynal`
-- `artifactId`: `loadingkit`
-- `version`: `1.0.0`
-
-Build:
-- Android Studio → **Build > Make Module 'loadingkit'**
-- Output: `loadingkit/build/outputs/aar/`
-
 ---
 
 ## Demo App
