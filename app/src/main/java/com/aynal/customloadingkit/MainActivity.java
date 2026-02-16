@@ -19,6 +19,10 @@ import com.aynal.loadingkit.LoadingOptions;
 import com.aynal.loadingkit.LoadingPreset;
 import com.aynal.loadingkit.LoadingPresets;
 
+/**
+ * Simple showcase app for LoadingKit library.
+ * This module is only for testing/demo. The library is in :loadingkit.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spPreset, spHost;
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         sbPadding = findViewById(R.id.sbPadding);
         sbGap = findViewById(R.id.sbGap);
 
+
         ArrayAdapter<CharSequence> presetAdapter = ArrayAdapter.createFromResource(
                 this, R.array.lk_presets, android.R.layout.simple_spinner_item);
         presetAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,12 +73,16 @@ public class MainActivity extends AppCompatActivity {
 
         LoadingOptions opts = LoadingPresets.apply(preset);
 
+        // Brand / logo
         opts.logoRes(R.mipmap.ic_launcher);
+        // message
         opts.message(etMessage.getText() != null ? etMessage.getText().toString() : "Loading...");
 
+        // toggles (your rule: default off, user controls)
         opts.showLoader(swShowLoader.isChecked());
         opts.showMessage(swShowMessage.isChecked());
 
+        // layout controls
         int size = Math.max(24, sbSize.getProgress());
         int pad = Math.max(0, sbPadding.getProgress());
         int gap = Math.max(0, sbGap.getProgress());
@@ -81,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
         opts.sizeDp(size);
         opts.contentPaddingDp(pad);
         opts.gapDp(gap);
-        opts.cancelable(false);
 
+        // show on selected host
         int host = spHost.getSelectedItemPosition();
         if (host == 0) {
             LoadingKit.popup().show(this, opts);
@@ -91,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (host == 2) {
             LoadingKit.fullscreen().show(this, opts);
         } else {
+            // InView demo: attach to activity root content
             LoadingKit.inView().show(this, opts);
         }
     }
@@ -104,25 +114,16 @@ public class MainActivity extends AppCompatActivity {
 
     private LoadingPreset presetFromIndex(int i) {
         switch (i) {
-            case 1:
-                return LoadingPreset.MODERN_SPINKIT_FADING_CIRCLE;
-            case 2:
-                return LoadingPreset.MODERN_CUSTOM_RING;
-            case 3:
-                return LoadingPreset.MODERN_CUSTOM_ORBIT;
-            case 4:
-                return LoadingPreset.MODERN_TEXT_DOTS;
-            case 5:
-                return LoadingPreset.MODERN_TEXT_TYPING;
-            case 6:
-                return LoadingPreset.MODERN_LOGO_ROTATE;
-            case 7:
-                return LoadingPreset.MODERN_LOGO_RIPPLE;
-            case 8:
-                return LoadingPreset.MODERN_GIF_DOTS;
+            case 1: return LoadingPreset.MODERN_SPINKIT_FADING_CIRCLE;
+            case 2: return LoadingPreset.MODERN_CUSTOM_RING;
+            case 3: return LoadingPreset.MODERN_CUSTOM_ORBIT;
+            case 4: return LoadingPreset.MODERN_TEXT_DOTS;
+            case 5: return LoadingPreset.MODERN_TEXT_TYPING;
+            case 6: return LoadingPreset.MODERN_LOGO_ROTATE;
+            case 7: return LoadingPreset.MODERN_LOGO_RIPPLE;
+            case 8: return LoadingPreset.MODERN_GIF_DOTS;
             case 0:
-            default:
-                return LoadingPreset.MODERN_SPINKIT_WAVE;
+            default: return LoadingPreset.MODERN_SPINKIT_WAVE;
         }
     }
 }
