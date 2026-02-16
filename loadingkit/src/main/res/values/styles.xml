@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LK_OverlayText" parent="@android:style/TextAppearance.Material.Medium">
+        <item name="android:textColor">@color/lk_text</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="LK_PopupDialog" parent="@android:style/Theme.DeviceDefault.Dialog.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+</resources>

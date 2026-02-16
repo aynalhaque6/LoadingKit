@@ -1,0 +1,98 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.aynal.loadingkit'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    /* afterEvaluate {
+         publishing {
+             publications {
+                 release(MavenPublication) {
+                     from components.release
+                     groupId = "com.aynal"
+                     artifactId = "loadingkit"
+                     version = "1.0.0"
+                 }
+             }
+         }
+     }*/
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                def comp = components.findByName("release")
+                if (comp != null) {
+                    from comp
+                }
+
+                groupId = "com.aynal.loadingkit"
+                artifactId = "loadingkit"
+                version = "1.0.0"
+
+                pom {
+                    name = "LoadingKit"
+                    description = "Modern loading library for Android"
+                    url = "https://github.com/aynalhaque6/LoadingKit"
+
+                    licenses {
+                        license {
+                            name = "Proprietary"
+                            url = "https://github.com/aynalhaque6/LoadingKit/blob/main/TERMS.md"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "aynal"
+                            name = "MD Aynal Haque"
+                        }
+                    }
+                    scm {
+                        url = "https://github.com/aynalhaque6/LoadingKit"
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation libs.android.spinkit
+    implementation libs.lottie
+}
+

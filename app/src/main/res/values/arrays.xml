@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lk_presets">
+        <item>Modern • SpinKit Wave</item>
+        <item>Modern • SpinKit FadingCircle</item>
+        <item>Modern • Custom RingPulse</item>
+        <item>Modern • Custom DotsOrbit</item>
+        <item>Modern • Text Dots</item>
+        <item>Modern • Text Typing</item>
+        <item>Modern • Logo Rotate</item>
+        <item>Modern • Logo Ripple</item>
+        <item>Modern • GIF Dots</item>
+    </string-array>
+
+    <string-array name="lk_hosts">
+        <item>Popup (Custom Dialog)</item>
+        <item>Overlay (Dim View)</item>
+        <item>Fullscreen (Solid Screen)</item>
+        <item>InView (Attach)</item>
+    </string-array>
+</resources>

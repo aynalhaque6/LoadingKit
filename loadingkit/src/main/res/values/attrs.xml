@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoadingView">
+        <attr name="lk_type" format="enum">
+            <enum name="spinkit" value="0"/>
+            <enum name="lottie" value="1"/>
+            <enum name="textDots" value="2"/>
+            <enum name="text" value="2"/>      <!-- alias -->
+            <enum name="logoPulse" value="3"/>
+            <enum name="gif" value="4"/>
+            <enum name="custom" value="5"/>
+        </attr>
+
+        <attr name="lk_message" format="string"/>
+        <attr name="lk_showMessage" format="boolean"/>
+        <attr name="lk_showLoader" format="boolean"/>
+        <attr name="lk_accentColor" format="color"/>
+        <attr name="lk_sizeDp" format="integer"/>
+
+        <!-- layout / spacing -->
+        <attr name="lk_contentPaddingDp" format="integer"/>
+        <attr name="lk_gapDp" format="integer"/>
+        <attr name="lk_messageMaxWidthDp" format="integer"/>
+        <attr name="lk_messageMaxLines" format="integer"/>
+
+        <attr name="lk_lottieAssetName" format="string"/>
+        <attr name="lk_gifAssetName" format="string"/>
+        <attr name="lk_gifLoop" format="boolean"/>
+    
+        <attr name="lk_customStyle" format="enum">
+            <enum name="ringPulse" value="0"/>
+            <enum name="barsWave" value="1"/>
+            <enum name="dotsOrbit" value="2"/>
+            <enum name="arcSpinner" value="3"/>
+        </attr>
+
+        <attr name="lk_logoRes" format="reference"/>
+        <attr name="lk_logoMode" format="enum">
+            <enum name="pulse" value="0"/>
+            <enum name="rotate" value="1"/>
+            <enum name="bounce" value="2"/>
+            <enum name="glow" value="3"/>
+            <enum name="ripple" value="4"/>
+        </attr>
+
+        <attr name="lk_preset" format="enum">
+            <enum name="modernSpinkitWave" value="0"/>
+            <enum name="modernSpinkitFadingCircle" value="1"/>
+            <enum name="modernCustomRing" value="2"/>
+            <enum name="modernCustomOrbit" value="3"/>
+            <enum name="modernTextDots" value="4"/>
+            <enum name="modernTextTyping" value="5"/>
+            <enum name="modernLogoRotate" value="6"/>
+            <enum name="modernLogoRipple" value="7"/>
+            <enum name="modernGifDots" value="8"/>
+        </attr>
+</declare-styleable>
+</resources>
